@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            color: #023020;
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #023020;
+            margin: 0 auto 30px;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 10px 30px rgba(2, 48, 32, 0.2);
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            color: #023020;
+        }
+
+        .quote-box {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            border-left: 5px solid #023020;
+            box-shadow: 0 4px 15px rgba(2, 48, 32, 0.1);
+        }
+
+        .quote-box p {
+            font-size: 18px;
+            line-height: 1.7;
+            font-style: italic;
+            color: #023020;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-info span {
+            font-size: 16px;
+            color: #023020;
+        }
+
+        /* Section Styling */
+        .section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: #023020;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(2, 48, 32, 0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(2, 48, 32, 0.15);
+            border-color: #023020;
+        }
+
+        .project-box h3 {
+            color: #023020;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .project-box p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .view-work-btn {
+            background: linear-gradient(135deg, #023020 0%, #014d38 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .view-work-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(2, 48, 32, 0.3);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(2, 48, 32, 0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(2, 48, 32, 0.15);
+            border-color: #023020;
+        }
+
+        .skill-logo {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #023020 0%, #014d38 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .skill-box h4 {
+            color: #023020;
+            font-size: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .quote-box {
+                padding: 20px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="image/picture.png" alt="Profile Picture" class="profile-pic">
+            <h1>Sadhiqa Sulaiha</h1>
+            <div class="quote-box">
+                <p>"I enjoy understanding problems and improving ideas. I like working with people, asking thoughtful questions, and learning through discussions. I adapt quickly and help teams move forward through clear and confident communication. I am confident speaking on stage and am eager to take up an internship to learn, contribute, and grow through real-world experience."</p>
+            </div>
+            <div class="contact-info">
+                <span>📧 sadhiqa.sm@zohocorp.com</span>
+                <span>📱 9443055793</span>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2 class="section-title">My Works</h2>
+            <div class="projects-grid">
+                <div class="project-box">
+                    <h3>Feature Recommendation</h3>
+                    <p>I conceptualized and proposed a new Zoho CRM feature to address user needs and improve functionality.</p>
+                    <button class="view-work-btn" onclick="window.open('https://show.zoho.in/show/publish/6ldvif042d496d8704f43ae48777230876734', '_blank')">View Work</button>
+                </div>
+
+                <div class="project-box">
+                    <h3>PRD</h3>
+                    <p>I authored the PRD for the Monitor Migration Framework (Tech Students Trade Show) project.</p>
+                    <button class="view-work-btn" onclick="window.open('https://writer.zoho.in/writer/open/t0ctz2fbbbda5d1fe45ae884e877d0a3b5fa4', '_blank')">View Work</button>
+                </div>
+
+                <div class="project-box">
+                    <h3>News Letter</h3>
+                    <p>I designed the Tharuvai Bulletin newsletter by organizing provided content into a clear, visually engaging layout.</p>
+                    <button class="view-work-btn" onclick="window.open('https://www.canva.com/design/DAG89IKbH48/iKK5hPxwlTtGczQvT-Alxw/edit?utm_content=DAG89IKbH48&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
+                </div>
+
+                <div class="project-box">
+                    <h3>Golden Circle</h3>
+                    <p>I applied Simon Sinek’s Golden Circle framework to analyze and articulate PhonePe’s purpose, value proposition, and user impact.</p>
+                    <button class="view-work-btn" onclick="window.open('https://www.canva.com/design/DAGzZD3nMu0/592X3ZOCdXJUE5Go0mFAhQ/edit?utm_content=DAGzZD3nMu0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
+                </div>
+
+                <div class="project-box">
+                    <h3>News letter content - Writing</h3>
+                    <p>I wrote content for the Tharuvai Bulletin newsletter, contributing clear and engaging written pieces.</p>
+                    <button class="view-work-btn" onclick="window.open('https://writer.zoho.in/writer/open/6ldvi11fed99f8c7c4f4889739edf71ee457d', '_blank')">View Work</button>
+                </div>
+
+                <div class="project-box">
+                    <h3>Product Pitch</h3>
+                    <p>I collaboratively delivered a product pitch with Sumithra Manikandan during the Bird Cage class.</p>
+                    <button class="view-work-btn" onclick="window.open('https://workdrive.zohopublic.in/show/publish/a8gel6b096cb73bd7466e8f0270ee55c7240b', '_blank')">View Work</button>
+                </div>
+                <div class="project-box">
+                    <h3>Novel November</h3>
+                    <p>I coordinated the Novel November project as the primary point of contact for 20 students across locations and authored two chapters.</p>
+                    <button class="view-work-btn" onclick="window.open('https://novelnovmber-60044720209.catalystserverless.in/app/index.html', '_blank')">View Work</button>
+                </div>
+                <div class="project-box">
+                    <h3>SEO GEO AEO</h3>
+                    <p>I presented an overview of SEO, GEO, and AEO, simplifying key concepts for better understanding.</p>
+                    <button class="view-work-btn" onclick="window.open('https://www.canva.com/design/DAG9VSZSOXs/qySWtVbXt6PK-OnF4Cuseg/edit?utm_content=DAG9VSZSOXs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
+                </div>
+                <div class="project-box">
+                    <h3>Understanding and explaining Zoho CRM features</h3>
+                    <p>I explored the features in detail, analyzed edge cases, and explained their practical usage and limitations to the class.</p>
+                    <button class="view-work-btn" onclick="window.open('https://show.zoho.in/show/publish/lpjr978cc8b01ea324691ab9fdfed18c4fe49', '_blank')">View Work</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products known -->
+        <div class="section">
+            <h2 class="section-title">Products known</h2>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <img src="https://cdn-public.softwarereviews.com/production/favicons/offerings/3576/original/zoho_creator-removebg-preview.png"width="100px", height="100px">
+                    <h4>Zoho creator</h4>
+                </div>
+
+                <div class="skill-box">
+                    <img src="https://images.g2crowd.com/uploads/product/image/d9d3ff178178a1f790a9d6114e104471/zoho-crm.png"width="100px", height="100px">
+                    <h4>Zoho CRM</h4>
+                </div>
+
+                <div class="skill-box">
+                    <img src="https://ps.w.org/zoho-forms/assets/icon-256x256.png?rev=2487515"width="100px", height="100px">
+
+                <h4>Zoho Forms</h4>
+                </div>
+
+                <div class="skill-box">
+                    <img src="https://www.zohowebstatic.com/sites/zweb/images/backstage/backstagetweet-logo.png"width="100px", height="100px">
+
+                    <h4>Zoho Backstage</h4>
+                </div>
+
+                <div class="skill-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73s87yVTDevpv3gmvuYFzdzCu-aYnvr0dGQ&s"width="100px", height="100px">
+
+                    <h4>Zoho Flow</h4>
+                </div>
+
+                <div class="skill-box">
+                    <img src="https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw"width="100px", height="100px">
+                    <h4>Zoho Survey</h4>
+                </div>
+                <div class="skill-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMFSwCiB5tkK152CabdKGFMFJ_O9QpCombmA&s"width="100px", height="100px">
+                    <h4>Zoho Sheets</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
