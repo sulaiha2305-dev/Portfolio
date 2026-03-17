@@ -179,16 +179,6 @@
 
         .section-header { margin-bottom: 64px; }
 
-        .section-eyebrow {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 14px;
-            display: block;
-        }
-
         .section-title {
             font-family: 'Syne', sans-serif;
             font-size: clamp(44px, 7vw, 88px);
@@ -285,9 +275,7 @@
         .view-btn::after { content: '→'; font-size: 16px; }
 
         /* ── SKILLS ── */
-        .skills-bg {
-            background: var(--dark);
-        }
+        .skills-bg { background: var(--dark); }
         .skills-bg .section-title { color: #fff; }
 
         .skills-grid {
@@ -342,13 +330,6 @@
             line-height: 1.4;
         }
 
-        @media (max-width: 1024px) {
-            .skills-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
         /* ── FOOTER ── */
         footer {
             background: var(--dark);
@@ -372,9 +353,9 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .skills-grid { grid-template-columns: repeat(4, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -395,7 +376,6 @@
         <div class="hero-bg-text">PORTFOLIO</div>
 
         <div class="hero-grid">
-            <!-- LEFT: image, name, role, tag -->
             <div class="hero-left">
                 <p class="hero-tag">✦ Product &amp; Strategy</p>
                 <div class="profile-ring">
@@ -405,7 +385,6 @@
                 <p class="hero-role">Student · Zoho Schools</p>
             </div>
 
-            <!-- RIGHT: quote, contact -->
             <div class="hero-right">
                 <div class="quote-box">
                     <p>I enjoy understanding problems, working with people, and turning ideas into action. I adapt quickly, communicate clearly, and enjoy engaging diverse audiences. I'm eager to learn through real-world experience at the intersection of customers, business, and solutions.</p>
@@ -490,55 +469,105 @@
                 <h2 class="section-title">Products Known</h2>
             </div>
             <div class="skills-grid">
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://play-lh.googleusercontent.com/rCD4Qevi1Q-vS8Ur1O2wRB4piYHMPIxAaQwthorpToQFSdX1GV1nziKKeM7ekBDk2A" alt="Zoho Creator">
+                    <img class="skill-img"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Zoho_creator_logo.png/240px-Zoho_creator_logo.png"
+                         onerror="this.src='https://play-lh.googleusercontent.com/rCD4Qevi1Q-vS8Ur1O2wRB4piYHMPIxAaQwthorpToQFSdX1GV1nziKKeM7ekBDk2A'"
+                         alt="Zoho Creator">
                     <h4>Zoho Creator</h4>
                     <p class="skill-desc">Built apps &amp; workflows</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE8vB8pka7ixQuzcVABDw_tZirEmtWSFnH8w&s" alt="Zoho CRM">
+                    <img class="skill-img"
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Zoho_CRM_logo.png/240px-Zoho_CRM_logo.png"
+                         onerror="this.src='https://www.zohowebstatic.com/sites/zweb/images/crm/zoho-crm-logo.png'"
+                         alt="Zoho CRM">
                     <h4>Zoho CRM</h4>
                     <p class="skill-desc">Managed pipelines &amp; modules</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://ps.w.org/zoho-forms/assets/icon-256x256.png?rev=2487515" alt="Zoho Forms">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/forms/zoho-forms-logo.png"
+                         onerror="this.src='https://cdn.worldvectorlogo.com/logos/zoho-forms.svg'"
+                         alt="Zoho Forms">
                     <h4>Zoho Forms</h4>
                     <p class="skill-desc">Created forms &amp; automations</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUtYBFTWi4T_uGAMb7hdMEI1g5VGmmZvxnLg&s" alt="Zoho Backstage">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/backstage/backstage-logo.png"
+                         onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUtYBFTWi4T_uGAMb7hdMEI1g5VGmmZvxnLg&s'"
+                         alt="Zoho Backstage">
                     <h4>Zoho Backstage</h4>
                     <p class="skill-desc">Handled event workflows</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://ps.w.org/zoho-flow/assets/icon-256x256.png?rev=2372153" alt="Zoho Flow">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/flow/zoho-flow-logo.png"
+                         onerror="this.src='https://ps.w.org/zoho-flow/assets/icon-256x256.png?rev=2372153'"
+                         alt="Zoho Flow">
                     <h4>Zoho Flow</h4>
                     <p class="skill-desc">Integrated apps &amp; automation</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw" alt="Zoho Survey">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/survey/zoho-survey-logo.png"
+                         onerror="this.src='https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw'"
+                         alt="Zoho Survey">
                     <h4>Zoho Survey</h4>
                     <p class="skill-desc">Collected user insights</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMFSwCiB5tkK152CabdKGFMFJ_O9QpCombmA&s" alt="Zoho Sheet">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/sheet/zoho-sheet-logo.png"
+                         onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMFSwCiB5tkK152CabdKGFMFJ_O9QpCombmA&s'"
+                         alt="Zoho Sheet">
                     <h4>Zoho Sheet</h4>
                     <p class="skill-desc">Handled data &amp; analysis</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwHsEQpAiWdUZ2pMHaL2w8F5yqRHFvD0RgOA&s" alt="Zoho Bigin">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/bigin/bigin-logo.png"
+                         onerror="this.src='https://cdn.worldvectorlogo.com/logos/zoho-bigin.svg'"
+                         alt="Zoho Bigin">
                     <h4>Zoho Bigin</h4>
                     <p class="skill-desc">Pipeline &amp; CRM basics</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://www.theworkflowacademy.com/wp-content/uploads/2024/03/zoho-Cliq-1024x1024.png" alt="Zoho Cliq">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/cliq/zoho-cliq-logo.png"
+                         onerror="this.src='https://www.theworkflowacademy.com/wp-content/uploads/2024/03/zoho-Cliq-1024x1024.png'"
+                         alt="Zoho Cliq">
                     <h4>Zoho Cliq</h4>
                     <p class="skill-desc">Team communication setup</p>
                 </div>
+
                 <div class="skill-box">
-                    <img class="skill-img" src="https://flow-public.nimbuspop.com/flow-apps/zoho_workdrive.png" alt="Zoho WorkDrive">
+                    <img class="skill-img"
+                         src="https://www.zohowebstatic.com/sites/zweb/images/workdrive/zoho-workdrive-logo.png"
+                         onerror="this.src='https://flow-public.nimbuspop.com/flow-apps/zoho_workdrive.png'"
+                         alt="Zoho WorkDrive">
                     <h4>Zoho WorkDrive</h4>
                     <p class="skill-desc">Handled file collaboration</p>
                 </div>
+
             </div>
         </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Sadhiqa Sulaiha &nbsp;✦&nbsp; 2025</p>
+    </footer>
+
+</body>
+</html>
