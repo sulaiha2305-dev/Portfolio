@@ -1,520 +1,145 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadhiqa Sulaiha — Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --forest: #023020;
-            --forest-mid: #014d38;
-            --accent: #1a7a52;
-            --gold: #c9a84c;
-            --cream: #f5f0e8;
-            --warm-white: #fdfaf5;
-            --dark: #0a1a12;
-            --text-muted: #5a7060;
-        }
+```html
+<!-- SKILLS SECTION (FULL - HTML + CSS) -->
+<style>
+/* BACKGROUND */
+.skills-bg {
+    padding: 60px 20px;
+    background: #071a14;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+/* SECTION */
+.section {
+    max-width: 1100px;
+    margin: auto;
+}
 
-        body {
-            font-family: 'Syne', sans-serif;
-            background: var(--warm-white);
-            color: var(--forest);
-            overflow-x: hidden;
-        }
+/* HEADER */
+.section-header {
+    margin-bottom: 40px;
+}
 
-        /* ── HERO ── */
-        .hero {
-            min-height: 100vh;
-            background: var(--dark);
-            display: flex;
-            align-items: center;
-            padding: 80px 80px;
-            position: relative;
-            overflow: hidden;
-        }
+.section-title {
+    font-size: 28px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
 
-        .hero-bg-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(100px, 18vw, 240px);
-            font-weight: 800;
-            color: rgba(255,255,255,0.025);
-            white-space: nowrap;
-            pointer-events: none;
-            letter-spacing: -4px;
-            user-select: none;
-        }
+/* GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
+/* CARD */
+.skill-box {
+    background: #0e3b2e;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    transition: 0.3s ease;
+}
 
-        .hero-left {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+.skill-box:hover {
+    transform: translateY(-6px);
+    background: #145c46;
+}
 
-        .hero-tag {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 28px;
-            animation: fadeUp 0.6s ease both;
-        }
+/* IMAGE */
+.skill-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
 
-        .profile-ring {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin-bottom: 32px;
-            animation: fadeUp 0.6s 0.1s ease both;
-        }
+/* TITLE */
+.skill-box h4 {
+    color: white;
+    font-size: 15px;
+    margin: 8px 0 4px;
+    font-family: 'Inter', sans-serif;
+}
 
-        .profile-ring::before {
-            content: '';
-            position: absolute;
-            inset: -5px;
-            border-radius: 50%;
-            border: 2px solid var(--gold);
-            opacity: 0.6;
-        }
+/* DESCRIPTION */
+.skill-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Inter', sans-serif;
+}
+</style>
 
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            border: 3px solid var(--accent);
-        }
-
-        .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(42px, 5.5vw, 80px);
-            font-weight: 800;
-            color: #fff;
-            line-height: 0.88;
-            letter-spacing: -2px;
-            margin-bottom: 24px;
-            animation: fadeUp 0.6s 0.15s ease both;
-            text-transform: uppercase;
-        }
-
-        .hero h1 span { color: var(--gold); }
-
-        .hero-role {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.35);
-            animation: fadeUp 0.6s 0.2s ease both;
-        }
-
-        .hero-right {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            animation: fadeUp 0.6s 0.25s ease both;
-        }
-
-        .quote-box {
-            padding: 28px 32px;
-            border: 1px solid rgba(255,255,255,0.08);
-            border-left: 3px solid var(--gold);
-            background: rgba(255,255,255,0.04);
-        }
-
-        .quote-box p {
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            font-weight: 300;
-            line-height: 1.85;
-            color: rgba(255,255,255,0.65);
-        }
-
-        .contact-row {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.45);
-        }
-
-        .contact-item .icon { color: var(--gold); font-size: 15px; }
-        .contact-item a { color: inherit; text-decoration: none; }
-
-        /* ── SECTION ── */
-        .section {
-            padding: 100px 60px;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-header { margin-bottom: 64px; }
-
-        .section-eyebrow {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 14px;
-            display: block;
-        }
-
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(44px, 7vw, 88px);
-            font-weight: 800;
-            color: var(--forest);
-            line-height: 0.9;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-        }
-
-        /* ── WORKS ── */
-        .works-bg { background: var(--warm-white); }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .project-box {
-            background: var(--cream);
-            padding: 36px 32px 32px;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(2,48,32,0.07);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-        }
-
-        .project-box::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--forest), var(--gold));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .project-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 24px 60px rgba(2,48,32,0.14);
-            background: #fff;
-        }
-
-        .project-box:hover::after { transform: scaleX(1); }
-
-        .project-num {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 14px;
-        }
-
-        .project-box h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 23px;
-            font-weight: 800;
-            color: var(--forest);
-            margin-bottom: 14px;
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-        }
-
-        .project-box p {
-            font-family: 'Inter', sans-serif;
-            font-size: 13.5px;
-            font-weight: 400;
-            line-height: 1.72;
-            color: var(--text-muted);
-            margin-bottom: 28px;
-        }
-
-        .view-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: 'Syne', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--forest);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            transition: gap 0.3s ease, color 0.3s ease;
-        }
-
-        .view-btn:hover { gap: 18px; color: var(--accent); }
-        .view-btn::after { content: '→'; font-size: 16px; }
-
-        /* ── SKILLS ── */
-        .skills-bg { background: var(--dark); }
-        .skills-bg .section-title { color: #fff; }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 16px;
-        }
-
-        .skill-box {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: 32px 20px 28px;
-            text-align: center;
-            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-            cursor: default;
-        }
-
-        .skill-box:hover {
-            background: var(--forest-mid);
-            border-color: var(--gold);
-            transform: translateY(-4px);
-        }
-
-        .skill-img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto 16px;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-box:hover .skill-img { transform: scale(1.1); }
-
-        .skill-box h4 {
-            font-family: 'Syne', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
-            transition: color 0.3s ease;
-        }
-
-        .skill-box:hover h4 { color: #fff; }
-
-        /* ── FOOTER ── */
-        footer {
-            background: var(--dark);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            padding: 40px;
-        }
-
-        footer p {
-            font-family: 'Syne', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.18);
-        }
-
-        /* ── ANIMATIONS ── */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-            .hero { padding: 60px 24px; }
-            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero-left { align-items: flex-start; }
-            .hero h1 { letter-spacing: -1px; }
-            .section { padding: 70px 24px; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-bg-text">PORTFOLIO</div>
-
-        <div class="hero-grid">
-            <!-- LEFT: image, name, role, tag -->
-            <div class="hero-left">
-                <p class="hero-tag">✦ Product &amp; Strategy</p>
-                <div class="profile-ring">
-                    <img src="picture.png" alt="Sadhiqa Sulaiha" class="profile-pic">
-                </div>
-                <h1>Sadhiqa<br><span>Sulaiha</span></h1>
-                <p class="hero-role">Student · Zoho Schools</p>
-            </div>
-
-            <!-- RIGHT: quote, contact -->
-            <div class="hero-right">
-                <div class="quote-box">
-                    <p>I enjoy understanding problems, working with people, and turning ideas into action. I adapt quickly, communicate clearly, and enjoy engaging diverse audiences. I'm eager to learn through real-world experience at the intersection of customers, business, and solutions.</p>
-                </div>
-                <div class="contact-row">
-                    <span class="contact-item"><span class="icon">✉</span> sadhiqa.sm@zohocorp.com</span>
-                    <span class="contact-item"><span class="icon">☏</span> <span style="font-feature-settings:'lnum';font-variant-numeric:lining-nums;">9443055793</span></span>
-                </div>
-            </div>
+<div class="skills-bg">
+    <section class="section">
+        
+        <div class="section-header">
+            <h2 class="section-title">Products Known</h2>
         </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://play-lh.googleusercontent.com/rCD4Qevi1Q-vS8Ur1O2wRB4piYHMPIxAaQwthorpToQFSdX1GV1nziKKeM7ekBDk2A">
+                <h4>Zoho Creator</h4>
+                <p class="skill-desc">Built apps & workflows</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE8vB8pka7ixQuzcVABDw_tZirEmtWSFnH8w&s">
+                <h4>Zoho CRM</h4>
+                <p class="skill-desc">Managed pipelines & modules</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://www.zohowebstatic.com/sites/default/files/forms_1.png">
+                <h4>Zoho Forms</h4>
+                <p class="skill-desc">Created forms & automations</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUtYBFTWi4T_uGAMb7hdMEI1g5VGmmZvxnLg&s">
+                <h4>Zoho Backstage</h4>
+                <p class="skill-desc">Handled event workflows</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://ps.w.org/zoho-flow/assets/icon-256x256.png?rev=2372153">
+                <h4>Zoho Flow</h4>
+                <p class="skill-desc">Integrated apps & automation</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://241967824.fs1.hubspotusercontent-na2.net/hubfs/241967824/__hs-marketplace__/zoho_survey_logo-2-1.png">
+                <h4>Zoho Survey</h4>
+                <p class="skill-desc">Collected user insights</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://www.zohowebstatic.com/sites/default/files/sheet-logo.png">
+                <h4>Zoho Sheet</h4>
+                <p class="skill-desc">Handled data & analysis</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://www.zohowebstatic.com/sites/default/files/mail-icon.png">
+                <h4>Zoho Mail</h4>
+                <p class="skill-desc">Managed communication</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://flow-public.nimbuspop.com/flow-apps/zoho_workdrive.png">
+                <h4>Zoho WorkDrive</h4>
+                <p class="skill-desc">Handled file collaboration</p>
+            </div>
+
+            <div class="skill-box">
+                <img class="skill-img" src="https://www.theworkflowacademy.com/wp-content/uploads/2024/03/zoho-Cliq-1024x1024.png">
+                <h4>Zoho Cliq</h4>
+                <p class="skill-desc">Team communication setup</p>
+            </div>
+
+        </div>
+
     </section>
-
-    <!-- WORKS -->
-    <div class="works-bg">
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">My Works</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-box">
-                    <p class="project-num">01 — Feature</p>
-                    <h3>Feature Recommendation</h3>
-                    <p>I conceptualized and proposed a new Zoho CRM feature to address user needs and improve functionality.</p>
-                    <button class="view-btn" onclick="window.open('https://workdrive.zohopublic.in/show/open/6ldvif042d496d8704f43ae48777230876734', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">02 — Product</p>
-                    <h3>PRD</h3>
-                    <p>I authored the PRD for the Monitor Migration Framework (Tech Students Trade Show) project.</p>
-                    <button class="view-btn" onclick="window.open('https://writer.zoho.in/writer/open/t0ctz2fbbbda5d1fe45ae884e877d0a3b5fa4', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">03 — Design</p>
-                    <h3>News Letter</h3>
-                    <p>I designed the Tharuvai Bulletin newsletter by organizing provided content into a clear, visually engaging layout.</p>
-                    <button class="view-btn" onclick="window.open('https://www.canva.com/design/DAG89IKbH48/iKK5hPxwlTtGczQvT-Alxw/edit?utm_content=DAG89IKbH48&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">04 — Strategy</p>
-                    <h3>Golden Circle</h3>
-                    <p>I applied Simon Sinek's Golden Circle framework to analyze and articulate PhonePe's purpose, value proposition, and user impact.</p>
-                    <button class="view-btn" onclick="window.open('https://www.canva.com/design/DAGzZD3nMu0/592X3ZOCdXJUE5Go0mFAhQ/edit?utm_content=DAGzZD3nMu0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">05 — Writing</p>
-                    <h3>Newsletter Content</h3>
-                    <p>I wrote content for the Tharuvai Bulletin newsletter, contributing clear and engaging written pieces.</p>
-                    <button class="view-btn" onclick="window.open('https://writer.zoho.in/writer/open/6ldvi11fed99f8c7c4f4889739edf71ee457d', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">06 — Pitch</p>
-                    <h3>Product Pitch</h3>
-                    <p>I collaboratively delivered a product pitch with Sumithra Manikandan during the Bird Cage class.</p>
-                    <button class="view-btn" onclick="window.open('https://workdrive.zohopublic.in/show/publish/a8gel6b096cb73bd7466e8f0270ee55c7240b', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">07 — Coordination</p>
-                    <h3>Novel November</h3>
-                    <p>I coordinated the Novel November project as the primary point of contact for 20 students across locations and authored two chapters.</p>
-                    <button class="view-btn" onclick="window.open('https://novelnovmber-60044720209.catalystserverless.in/app/index.html', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">08 — Research</p>
-                    <h3>SEO GEO AEO</h3>
-                    <p>I presented an overview of SEO, GEO, and AEO, simplifying key concepts for better understanding.</p>
-                    <button class="view-btn" onclick="window.open('https://www.canva.com/design/DAG9VSZSOXs/qySWtVbXt6PK-OnF4Cuseg/edit?utm_content=DAG9VSZSOXs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
-                </div>
-                <div class="project-box">
-                    <p class="project-num">09 — Analysis</p>
-                    <h3>Understanding Zoho CRM Features</h3>
-                    <p>I explored features in detail, analyzed edge cases, and explained their practical usage and limitations to the class.</p>
-                    <button class="view-btn" onclick="window.open('https://show.zoho.in/show/publish/lpjr978cc8b01ea324691ab9fdfed18c4fe49', '_blank')">View Work</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- SKILLS -->
-    <div class="skills-bg">
-        <section class="section">
-            <div class="section-header">
-                <h2 class="section-title">Products Known</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-box">
-                    <img class="skill-img" src="https://play-lh.googleusercontent.com/rCD4Qevi1Q-vS8Ur1O2wRB4piYHMPIxAaQwthorpToQFSdX1GV1nziKKeM7ekBDk2A" alt="Zoho Creator">
-                    <h4>Zoho Creator</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE8vB8pka7ixQuzcVABDw_tZirEmtWSFnH8w&s" alt="Zoho CRM">
-                    <h4>Zoho CRM</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8HmUj29vYAkjYAlkEAkTLe7eNxuooKmkr1+vdZrnYAlT0AkzkAlkCbzKyIw5uAv5TX6dzA38vm8upHqGlmtYGy1r0Ajy2l0bTr9e/L5NOQx6Ks1Lkln1ZltIA0o15RrXIgnlN2u45Bp2fQ5tcxol3E4c6ezq63H9B4AAAEzElEQVR4nO3dbWOaOgCGYVmCVYn1taJStW51/v9/uJaEVi0YIPGYx/PcH7sZuUZ1AjF0fj16nV+dx45C/CjEj0L8KMSPQvwoxI9C/CjEj0L8KMSPQvwoxI9C/CjEj0L8KMSPQvwoxI9C/CjEj0L8KMSPQvwoxI9C/CjEz5ewPx1tB357yf762DI/wtlTrIbSd4kQ434YwlEqo9s0jJchCP+oG/k+E9v7Cw/DGwKjSA3uLRwkNwV+7MXsvsJpbDYkEbHfRPG7kXbvKjRbIeWx2/fbZGT+8eTbPYVTkW/E0Gkjqlr1zE6cOQziKtzm/0/IndMgla30u3Ty7DCGq1C/zYiJ0yDVHRPnX1NH4Uq/VPYuY1yrb16KDkM4Crv5y1C+uIxxNf1hKXYYwY/wyWWMq/UotEahJQqdo9DeLYWrRTZu3OJ8jJCFi12skmHjxPxslHCFk71oeWZDvJ6OE6zwNW3Hiy4/IIUqXLYHRvLsxEygwrUDEGMfFmdupBJNUjDCzAjFfDFpUHeqUITCAKcNB5uVHIoFKdS7Iorfmw4GIxznZwGHvxsPBiOc5//Vtzh1AyPct90oGKF5n2k+GIXtotCSV+GkZLDHEr7mn4WGo9OfPZbwkD9QnR3lP5TwWX8WSlenP3wkYaYvUcg/Zz8NWJh0mxxXrI97M91BnE+iCVgYNTs0/DqkPN+FQQvbJS6mCD2cML38vB6kcN/aJ9WPA5IgheOWE2xkPPg5iy1IYX+vmp/qTlS8LTspEKTw4+PXqGnZcl3+BIEKPUahPQotUegchfYotEShcxTao9CSTXh9JneNJwha+D4+WGbjpyWHSxcFLPy7EfZvmgw3ticIV7iNr9KKRMVB01ehCvubmsf5alE67HehCjd1Z3yhCp++92Dllwuhhe/FlCildvOqyi7DlBSmUE9ViOT+2oQafSkNUzgzl1jmVQ/KWwILj+ZVeP2RyEL9Za/kteoxOmThTm/UquoxOmSh3ijbFVJkYURhHoUmYGGWH1sp2yxbYOFG/y3bHE1cofkOuHXTYYVdMy/fuiIEqnBZTHa3rkATsFA+VfYmzCdXebA+QcDC6mNf+XUCoMaCFyEL7cVH+xNAC+M6q7IAC2VsObzSwQqTdGA5ujKFLKychxjH8S6rux5LwEK1mlVVb+/pAha2mOddFoX2KLREoXMU2qPQEoXOUWiPQksUOkehPQot/W+EZ8sCeRUm9xaWrb7pU6i/oh/1HIZwXaFV/xadXSTzKdTrpEiXNb1dhXoTInkyUdSjcK1/RVStE48VuQrfzfSg3vcJ+nozFeq0MK+B2GV1fefVrnfmKkS8XazzJpf7sDtt1/FgrlC1WMzHp3BSTNOTynQhnMeqXV8THC+//fwfCzuZiMoqhC/Oi9Knbre58HDngJfSWyMUwnqzoa8Ba1yhurGwMy5TKPOHLsvvfSRTl/fRz7zcwWMqf+zGYbGOzpvLzT2kODjdNeAzT/eZWW5ilZykesW7wyo6+4MGKZG+ebjTjLd7Ba2mx+y5KDud6rR4btXx1fZNhXrxbkj4UYgfhfhRiB+F+FGIH4X4UYgfhfhRiB+F+FGIH4X4UYgfhfhRiB+F+FGIH4X4UYgfhfhRiB+F+FGIH4X4UYjfh/DR+wfTemyo9YquSQAAAABJRU5ErkJggg==" alt="Zoho Forms">
- </div>
-                    <h4>Zoho Forms</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUtYBFTWi4T_uGAMb7hdMEI1g5VGmmZvxnLg&s" alt="Zoho Backstage">
-                    <h4>Zoho Backstage</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="https://ps.w.org/zoho-flow/assets/icon-256x256.png?rev=2372153" alt="Zoho Flow">
-                    <h4>Zoho Flow</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="https://241967824.fs1.hubspotusercontent-na2.net/hubfs/241967824/__hs-marketplace__/zoho_survey_logo-2-1.png" alt="Zoho Survey">
-                    <h4>Zoho Survey</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAADeCAMAAAD4tEcNAAAAk1BMVEX////4+Pg2pl78/Pw2pF4qpFYrpVkso1mUzqeUzKaSzam538NouYQvo1n+/f/D4stdtnsImUoAmkj4/Pk/qWeBxZbg7+VquIUjoVKAw5jX6t0kn1bT69rx+vbG48+x2sCl0rJLrW+w3r+JyKAxo19zvo7s9e3a6uKw2MNguH9UsXZGrWWf0a3f8+LI49XM59J5wo8R2GXDAAAHl0lEQVR4nO3d63qiOhQG4BSEWCXgFFRURNAZ96j0cP9Xt4VAtZhAgigJk++ZP1MV83bFGE4peOl/QNcNeEKUsR9Rxn5EGfsRZexHlLEfUcbK6Od/z8rTjef3BDp4es5v2gzLaexGV5Y+0Kh3zLuEj8luFAaIw6FkNIpTwkuYi8lmFFCYhhHJYhRUmIZJWW8UWJiGQVlrFJzIgqwzCk9kQNYYJSDWI6uNXbeeNXcYu246exobu244Txoau242XxoZpRhurtLAKBuxYnSlGaUjViBpxq4b3CScRgnLSC8kxdh1c5uFgiQbpSwjn1FSIg3ZLyO5VxJ/2nVLm4dYSJJR3jKyG7tu6D1hNEpcRnIh/02j1EQiUhklDJOx60beG2XsQ1cldVZllDEMxq6beH+UURllSa1R+iGHMOgoo5RRRmWkxg02yfABSTbBGgBbAOM6in3fNx6Q82a93Yy7Qe0bw9jUHhcET5uOjTbYamgweCBSQ8Yr5++97Tp+PLKIecyI77rglo1rDz7eqBlLrnGnZeOoKCM0HxCI8o3PuRrVrtGNcSuQN319QHZHAyN9rsG1XWPwG/elP/wDPEvs9RD3E3/L87I2jedBFX8avT1v61njWviXuOB5UbvGJDNCrhbwZZO9w8DieU27fRUPOXDE126ejI30y9dQxlKU8THG/0bTv00PE0lidMzzLsRhzbPdS6Qw2nsvnSf4rzzbvUQKI/jI5irGhGe7l8hhdDIjmnDvzmdRRnKUURlvo4w4ylgXZSRHGZXxNsqIo4x1UUZylFE840YOo4mNPNu9RLg62vuRVc78+CvN2+rmEZbMj5pgxtnJR+UTWMh/y4xvCDU5cYXPGYljtBcr7TYmNv4iPMQccYzrI+q70XYPpBPnvTICkPj9N+o7eJtizCE8xBDRxpxzluNynKG/SnO6eYQlzhSJZiTNZUJDGwwGxoFnu5eMoWhGUtR8tS7KSI4yKuNtlBFHGeuijOQoozLeRhlxlLEuykiOMirjbZQRRxnroozkKKMy3uYZxt4fX7X/ASNYZq9eDXleI5sRTH2EzBPXTWvSGfXkGC/e+V4igdEuPdUFXd6P3KrRDpLEmbkNFj0oRVyjnaTXhHjz4ce9d4yKawzwvcfIgN48+Wh4e1YWYY129H0XPjKh71lR4PI05SrCGkH086IQZPje17aRU1zj581qCggaWjzdLF/SYYgDK65xH5eN2euQoR0X4xlPPcU1gq/fJGTmNLV45zAPtwIbN/hanIFWXJXz0wnhcejsWeopsHGJNXDj7CaaYRKc5ko7DMNap8BGHV9SmG7NnY13R80kOaFx/vr8rOy3AhvBCD/zkN2Dbq9n22mMDCITesOKYoprtIv1hsx0gRM8L3eDzcIzDdPUykstrSru4RbXCOz9ICua+XMBKzeILO/241mxDorARgAs2hIn68/EihG6LiaiL2cjtDHC0/KYOCHfhyPLuxBjSeu4xNM5I6A9YVZczY3MiL4ZoY350lF+Qnv8q5jTVh7EaneNIGw0d1W77jzHOqaZAc1dwpNtsJ7Dooq030KWdo14fwgeq2Ye7EYdOD4eVojjyfpQEFdR9XZa7ashfldU9Y0cZkbIdC/SHiN8h/SYBfNxFUbVW2nXuM8HOtPaOCElCb7fKqY9HoZOWIyRroWnc7vS+5z7wP6QEwda3QKQLa+ht8h33s/zK1qK3fuK9Tmhts17Ml4EDMWlfmGD2SQnQqN2jcuWje/fO+8DWmqfkD7Fz78ugnw9uWWZGEO8pQEa1zaq5XUCwdbQ2oixwENzfjDAKI2b76diuEGkj+pDjTZwh4Q9A/7Ar2wSbhffHlfnqWwdLC9LvIYMrWp9jVk9MltYurNY7NDe5Bu7nqkFcfFrPIUs37IPWCs4+DJ8OEB3BPqHYpCZYYxxVa/gVEzgTp9MDXrEms/6eW/WmtwRK/meheuT8reH892fT0vi2z/F2GqG+AN5xNO589Sn2HNEHuvioMIbQ3x/4WCGP3nj4ggAjBmrKIExPxgA/2b/2xQd1ZiwL/EqvNGeY+MireM2FyI44ThhJ7wRbLPOmu3nb4r7YhEPsd7Y+d8omeGZE/wEUUE0rTXPyeWySDxjfjAAjb5PSBpzvjPL4hvBDk/cim9+Df7hPKksgdH5Oc2HX7znzeuNnQ86s58z2QXvqWQZ/k6ZO7/ak0l3ujivZZHBCJLLsh/+jv9iHQZj9x/I4HtvEVYdDKPlBiSicV/sLxpJk07FYuy+sy5gVsn0eHkbXVVIY4gvsI4aXTkniVF/hXClcf2th6sXsxgFQNpBEr3zXHZ0ifo711c/kzgEDtEocSFJZSQaJS4ku1HeQpI0PTMSy0g2yookEylGST+RfEYpC0kh0oxSFpJCoRolLCStjFSjfEgqkW6UDkmFVBjlQtKrWGmUClnBqDRKNLhWKaqN0iArETVGObpr1WeRwSgDso5YaxQfWUusN4qOrCcyGIVWMgjZjMIqmYSsxhddQKXOSGQ1vghXS1Ygl1GkYjKXkNuImR1DdU4gvzGH6l2UNHvbBs1tZPyJfUruaeV9RkmijP2IMvYjytiPKGM/ooz9iDL2I/8DgrLSA1tCSZkAAAAASUVORK5CYII=" alt="Zoho Sheets">
- </div>
-<h4>Zoho Sheet</h4>
-            
-                <div class="skill-box">
-                    <img class="skill-img" src="data:image/png;base64,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" alt="Zoho Mail">
- </div>
-<h4>Zoho Mail</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="https://flow-public.nimbuspop.com/flow-apps/zoho_workdrive.png" alt="Zoho Bigin">
-                    <h4>Zoho Workdrive</h4>
-                </div>
-                <div class="skill-box">
-                    <img class="skill-img" src="https://www.theworkflowacademy.com/wp-content/uploads/2024/03/zoho-Cliq-1024x1024.png" alt="Zoho Bigin">
-                    <h4>Zoho Cliq</h4>
-                </div>
-            </div>
-        </section>
+</div>
+```
