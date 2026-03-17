@@ -281,7 +281,7 @@
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
+            gap: 20px;
         }
 
         .skill-box {
@@ -292,6 +292,9 @@
             text-align: center;
             transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
             cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .skill-box:hover {
@@ -312,22 +315,25 @@
         .skill-box:hover .skill-img { transform: scale(1.1); }
 
         .logo-wrap {
-            width: 64px;
-            height: 64px;
+            width: 72px;
+            height: 72px;
             background: #fff;
-            border-radius: 14px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 14px;
+            margin: 0 auto 16px;
             overflow: hidden;
-            padding: 6px;
+            padding: 8px;
+            flex-shrink: 0;
         }
 
         .logo-wrap .skill-img {
-            width: 52px;
-            height: 52px;
+            width: 56px;
+            height: 56px;
             margin: 0;
+            object-fit: contain;
+            display: block;
         }
 
         .skill-box h4 {
@@ -491,7 +497,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/rCD4Qevi1Q-vS8Ur1O2wRB4piYHMPIxAaQwthorpToQFSdX1GV1nziKKeM7ekBDk2A" alt="Zoho Creator">
+                        <img class="skill-img" src="https://img.icons8.com/color/96/zoho-creator.png" alt="Zoho Creator">
                     </div>
                     <h4>Zoho Creator</h4>
                     <p class="skill-desc">Built apps &amp; workflows</p>
@@ -499,7 +505,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/EMOe-skHLuIaQELWEMIETsUPMxPXMDByPoKNa6Flt4g5t0KHdRmqHGS65-9VFGrFBA" alt="Zoho CRM">
+                        <img class="skill-img" src="https://img.icons8.com/color/96/zoho.png" alt="Zoho CRM">
                     </div>
                     <h4>Zoho CRM</h4>
                     <p class="skill-desc">Managed pipelines &amp; modules</p>
@@ -507,7 +513,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/tCHSTREqp6eFYxl75O-eEHRR8V5zBJHpP3Xp08D1pYVJG_ZOz5FVFS5dBhGFnqIqUw" alt="Zoho Forms">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/tCHSTREqp6eFYxl75O-eEHRR8V5zBJHpP3Xp08D1pYVJG_ZOz5FVFS5dBhGFnqIqUw=w480-h960-rw" alt="Zoho Forms">
                     </div>
                     <h4>Zoho Forms</h4>
                     <p class="skill-desc">Created forms &amp; automations</p>
@@ -515,7 +521,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/AkVYrx7z0p73tMFKFkV46EklJVFO4Oua2IvJqHSNi0wfPNKPZB2h6UbBrW1lSjFm4g" alt="Zoho Backstage">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/AkVYrx7z0p73tMFKFkV46EklJVFO4Oua2IvJqHSNi0wfPNKPZB2h6UbBrW1lSjFm4g=w480-h960-rw" alt="Zoho Backstage">
                     </div>
                     <h4>Zoho Backstage</h4>
                     <p class="skill-desc">Handled event workflows</p>
@@ -523,7 +529,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/s8lPEJl3EUjkBSAWDaKclbOVvVCXVQ5N3rBIk3gkwFW0OFc3tBLWbUe8mJCJnZ7WQQ" alt="Zoho Flow">
+                        <img class="skill-img" src="https://ps.w.org/zoho-flow/assets/icon-256x256.png?rev=2372153" alt="Zoho Flow">
                     </div>
                     <h4>Zoho Flow</h4>
                     <p class="skill-desc">Integrated apps &amp; automation</p>
@@ -531,7 +537,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw" alt="Zoho Survey">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw=w480-h960-rw" alt="Zoho Survey">
                     </div>
                     <h4>Zoho Survey</h4>
                     <p class="skill-desc">Collected user insights</p>
@@ -539,17 +545,23 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/EFAkHnfRdRU0ypEzAO1FmYCPjU9G0sIiY0U1RFKnPQJULLiPSELLz7JV6MCPDVHkEg" alt="Zoho Sheet">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/EFAkHnfRdRU0ypEzAO1FmYCPjU9G0sIiY0U1RFKnPQJULLiPSELLz7JV6MCPDVHkEg=w480-h960-rw" alt="Zoho Sheet">
                     </div>
                     <h4>Zoho Sheet</h4>
                     <p class="skill-desc">Handled data &amp; analysis</p>
                 </div>
 
-            
+                <div class="skill-box">
+                    <div class="logo-wrap">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/MHKaU5HQhJHBTJpr_t0oaVkRYmLEiJdLxEwqiPsJbRtbAb_kVCvCEPMHioq5p8C4Uw=w480-h960-rw" alt="Zoho Bigin">
+                    </div>
+                    <h4>Zoho Bigin</h4>
+                    <p class="skill-desc">Pipeline &amp; CRM basics</p>
+                </div>
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/6z8M_g_VLF1SyUbJU2yH2SDiNaLJQ1pYpF7MGOiZW49iVWV01fW8OAqoGw9aBqlYLg" alt="Zoho Cliq">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/6z8M_g_VLF1SyUbJU2yH2SDiNaLJQ1pYpF7MGOiZW49iVWV01fW8OAqoGw9aBqlYLg=w480-h960-rw" alt="Zoho Cliq">
                     </div>
                     <h4>Zoho Cliq</h4>
                     <p class="skill-desc">Team communication setup</p>
@@ -557,7 +569,7 @@
 
                 <div class="skill-box">
                     <div class="logo-wrap">
-                        <img class="skill-img" src="https://play-lh.googleusercontent.com/H28h3pQyxHEEhPVRx-7MCx5sl2bLBFkFjZuqWWFzQ2_Z5d4e5HiCmRW_gJQVDPrXvg" alt="Zoho WorkDrive">
+                        <img class="skill-img" src="https://play-lh.googleusercontent.com/H28h3pQyxHEEhPVRx-7MCx5sl2bLBFkFjZuqWWFzQ2_Z5d4e5HiCmRW_gJQVDPrXvg=w480-h960-rw" alt="Zoho WorkDrive">
                     </div>
                     <h4>Zoho WorkDrive</h4>
                     <p class="skill-desc">Handled file collaboration</p>
