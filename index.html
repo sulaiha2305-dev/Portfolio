@@ -3,323 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Sadhiqa Sulaiha — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --forest: #023020;
+            --forest-mid: #014d38;
+            --accent: #1a7a52;
+            --gold: #c9a84c;
+            --cream: #f5f0e8;
+            --warm-white: #fdfaf5;
+            --dark: #0a1a12;
+            --text-muted: #5a7060;
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
+            font-family: 'Syne', sans-serif;
+            background: var(--warm-white);
+            color: var(--forest);
+            overflow-x: hidden;
+        }
+
+        /* ── HERO ── */
+        .hero {
             min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header Section */
-        .header {
+            background: var(--dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px 80px;
+            position: relative;
+            overflow: hidden;
             text-align: center;
-            color: #023020;
-            padding: 60px 20px;
-            background: white;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(100px, 18vw, 240px);
+            font-weight: 800;
+            color: rgba(255,255,255,0.025);
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: -4px;
+            user-select: none;
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 32px;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .profile-ring {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin-bottom: 36px;
+            animation: fadeUp 0.6s 0.1s ease both;
+        }
+
+        .profile-ring::before {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            opacity: 0.6;
         }
 
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            border: 5px solid #023020;
-            margin: 0 auto 30px;
             object-fit: cover;
             display: block;
-            box-shadow: 0 10px 30px rgba(2, 48, 32, 0.2);
+            border: 3px solid var(--accent);
         }
 
-        .header h1 {
-            font-size: 48px;
-            margin-bottom: 25px;
-            color: #023020;
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(52px, 10vw, 120px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            animation: fadeUp 0.6s 0.15s ease both;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span { color: var(--gold); }
+
+        .hero-role {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 48px;
+            animation: fadeUp 0.6s 0.2s ease both;
         }
 
         .quote-box {
-            max-width: 700px;
-            margin: 0 auto 30px;
-            background: #ffffff;
-            padding: 30px 40px;
-            border-radius: 15px;
-            border-left: 5px solid #023020;
-            box-shadow: 0 4px 15px rgba(2, 48, 32, 0.1);
+            max-width: 620px;
+            padding: 28px 36px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-left: 3px solid var(--gold);
+            background: rgba(255,255,255,0.04);
+            margin-bottom: 40px;
+            animation: fadeUp 0.6s 0.25s ease both;
+            text-align: left;
         }
 
         .quote-box p {
-            font-size: 18px;
-            line-height: 1.7;
-            font-style: italic;
-            color: #023020;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.65);
         }
 
-        .contact-info {
+        .contact-row {
             display: flex;
-            justify-content: center;
-            gap: 30px;
+            gap: 28px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            justify-content: center;
+            animation: fadeUp 0.6s 0.3s ease both;
         }
 
-        .contact-info span {
-            font-size: 16px;
-            color: #023020;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.45);
         }
 
-        /* Section Styling */
+        .contact-item .icon { color: var(--gold); }
+        .contact-item a { color: inherit; text-decoration: none; }
+
+        /* ── SECTION ── */
         .section {
-            margin: 60px 0;
+            padding: 100px 60px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header { margin-bottom: 64px; }
+
+        .section-eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+            display: block;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 42px;
-            color: #023020;
-            margin-bottom: 50px;
-            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(44px, 7vw, 88px);
+            font-weight: 800;
+            color: var(--forest);
+            line-height: 0.9;
+            letter-spacing: -2px;
+            text-transform: uppercase;
         }
 
-        /* Projects Grid */
+        /* ── WORKS ── */
+        .works-bg { background: var(--warm-white); }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
         .project-box {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 35px;
-            box-shadow: 0 4px 15px rgba(2, 48, 32, 0.1);
-            border: 2px solid #f0f0f0;
-            transition: all 0.3s ease;
+            background: var(--cream);
+            padding: 36px 32px 32px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(2,48,32,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .project-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--forest), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
         .project-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(2, 48, 32, 0.15);
-            border-color: #023020;
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(2,48,32,0.14);
+            background: #fff;
+        }
+
+        .project-box:hover::after { transform: scaleX(1); }
+
+        .project-num {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
         }
 
         .project-box h3 {
-            color: #023020;
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-family: 'Syne', sans-serif;
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--forest);
+            margin-bottom: 14px;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
         .project-box p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13.5px;
+            font-weight: 400;
+            line-height: 1.72;
+            color: var(--text-muted);
+            margin-bottom: 28px;
         }
 
-        .view-work-btn {
-            background: linear-gradient(135deg, #023020 0%, #014d38 100%);
-            color: white;
+        .view-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--forest);
+            background: none;
             border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            padding: 0;
+            transition: gap 0.3s ease, color 0.3s ease;
         }
 
-        .view-work-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(2, 48, 32, 0.3);
-        }
+        .view-btn:hover { gap: 18px; color: var(--accent); }
+        .view-btn::after { content: '→'; font-size: 16px; }
 
-        /* Skills Grid */
+        /* ── SKILLS ── */
+        .skills-bg { background: var(--dark); }
+        .skills-bg .section-title { color: #fff; }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
         }
 
         .skill-box {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 35px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 32px 20px 28px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(2, 48, 32, 0.1);
-            border: 2px solid #f0f0f0;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            cursor: default;
         }
 
         .skill-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(2, 48, 32, 0.15);
-            border-color: #023020;
+            background: var(--forest-mid);
+            border-color: var(--gold);
+            transform: translateY(-4px);
         }
 
-        .skill-logo {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #023020 0%, #014d38 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: white;
-            font-weight: bold;
+        .skill-img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 16px;
+            transition: transform 0.3s ease;
         }
+
+        .skill-box:hover .skill-img { transform: scale(1.1); }
 
         .skill-box h4 {
-            color: #023020;
-            font-size: 20px;
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s ease;
+        }
+
+        .skill-box:hover h4 { color: #fff; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            padding: 40px;
+        }
+
+        footer p {
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.18);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 36px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .quote-box {
-                padding: 20px 25px;
-            }
+            .hero { padding: 80px 24px 80px; }
+            .section { padding: 70px 24px; }
+            .hero h1 { letter-spacing: -1px; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="picture.png" alt="Profile Picture" class="profile-pic">
-            <h1>Sadhiqa Sulaiha</h1>
-            <div class="quote-box">
-                <p>I enjoy understanding problems, working with people, and turning ideas into action. I adapt quickly, communicate clearly, and enjoy engaging diverse audiences. I’m eager to learn through real-world experience at the intersection of customers, business, and solutions.</p>
-            </div>
-            <div class="contact-info">
-                <span>📧 sadhiqa.sm@zohocorp.com</span>
-                <span>📱 9443055793</span>
-            </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg-text">PORTFOLIO</div>
+
+        <p class="hero-tag">✦ Product &amp; Strategy</p>
+
+        <div class="profile-ring">
+            <img src="picture.png" alt="Sadhiqa Sulaiha" class="profile-pic">
         </div>
 
-        <!-- Projects Section -->
-        <div class="section">
-            <h2 class="section-title">My Works</h2>
+        <h1>Sadhiqa<br><span>Sulaiha</span></h1>
+        <p class="hero-role">Student · Zoho Schools</p>
+
+        <div class="quote-box">
+            <p>I enjoy understanding problems, working with people, and turning ideas into action. I adapt quickly, communicate clearly, and enjoy engaging diverse audiences. I'm eager to learn through real-world experience at the intersection of customers, business, and solutions.</p>
+        </div>
+
+        <div class="contact-row">
+            <span class="contact-item"><span class="icon">✉</span> sadhiqa.sm@zohocorp.com</span>
+            <span class="contact-item"><span class="icon">☏</span> <span style="font-feature-settings:'lnum';font-variant-numeric:lining-nums;">9443055793</span></span>
+        </div>
+    </section>
+
+    <!-- WORKS -->
+    <div class="works-bg">
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">My Works</h2>
+            </div>
             <div class="projects-grid">
                 <div class="project-box">
+                    <p class="project-num">01 — Feature</p>
                     <h3>Feature Recommendation</h3>
                     <p>I conceptualized and proposed a new Zoho CRM feature to address user needs and improve functionality.</p>
-                    <button class="view-work-btn" onclick="window.open('https://workdrive.zohopublic.in/show/open/6ldvif042d496d8704f43ae48777230876734', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://workdrive.zohopublic.in/show/open/6ldvif042d496d8704f43ae48777230876734', '_blank')">View Work</button>
                 </div>
-
                 <div class="project-box">
+                    <p class="project-num">02 — Product</p>
                     <h3>PRD</h3>
                     <p>I authored the PRD for the Monitor Migration Framework (Tech Students Trade Show) project.</p>
-                    <button class="view-work-btn" onclick="window.open('https://writer.zoho.in/writer/open/t0ctz2fbbbda5d1fe45ae884e877d0a3b5fa4', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://writer.zoho.in/writer/open/t0ctz2fbbbda5d1fe45ae884e877d0a3b5fa4', '_blank')">View Work</button>
                 </div>
-
                 <div class="project-box">
+                    <p class="project-num">03 — Design</p>
                     <h3>News Letter</h3>
                     <p>I designed the Tharuvai Bulletin newsletter by organizing provided content into a clear, visually engaging layout.</p>
-                    <button class="view-work-btn" onclick="window.open('https://www.canva.com/design/DAG89IKbH48/iKK5hPxwlTtGczQvT-Alxw/edit?utm_content=DAG89IKbH48&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://www.canva.com/design/DAG89IKbH48/iKK5hPxwlTtGczQvT-Alxw/edit?utm_content=DAG89IKbH48&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
                 </div>
-
                 <div class="project-box">
+                    <p class="project-num">04 — Strategy</p>
                     <h3>Golden Circle</h3>
-                    <p>I applied Simon Sinek’s Golden Circle framework to analyze and articulate PhonePe’s purpose, value proposition, and user impact.</p>
-                    <button class="view-work-btn" onclick="window.open('https://www.canva.com/design/DAGzZD3nMu0/592X3ZOCdXJUE5Go0mFAhQ/edit?utm_content=DAGzZD3nMu0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
+                    <p>I applied Simon Sinek's Golden Circle framework to analyze and articulate PhonePe's purpose, value proposition, and user impact.</p>
+                    <button class="view-btn" onclick="window.open('https://www.canva.com/design/DAGzZD3nMu0/592X3ZOCdXJUE5Go0mFAhQ/edit?utm_content=DAGzZD3nMu0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
                 </div>
-
                 <div class="project-box">
-                    <h3>News letter content - Writing</h3>
+                    <p class="project-num">05 — Writing</p>
+                    <h3>Newsletter Content</h3>
                     <p>I wrote content for the Tharuvai Bulletin newsletter, contributing clear and engaging written pieces.</p>
-                    <button class="view-work-btn" onclick="window.open('https://writer.zoho.in/writer/open/6ldvi11fed99f8c7c4f4889739edf71ee457d', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://writer.zoho.in/writer/open/6ldvi11fed99f8c7c4f4889739edf71ee457d', '_blank')">View Work</button>
                 </div>
-
                 <div class="project-box">
+                    <p class="project-num">06 — Pitch</p>
                     <h3>Product Pitch</h3>
                     <p>I collaboratively delivered a product pitch with Sumithra Manikandan during the Bird Cage class.</p>
-                    <button class="view-work-btn" onclick="window.open('https://workdrive.zohopublic.in/show/publish/a8gel6b096cb73bd7466e8f0270ee55c7240b', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://workdrive.zohopublic.in/show/publish/a8gel6b096cb73bd7466e8f0270ee55c7240b', '_blank')">View Work</button>
                 </div>
                 <div class="project-box">
+                    <p class="project-num">07 — Coordination</p>
                     <h3>Novel November</h3>
                     <p>I coordinated the Novel November project as the primary point of contact for 20 students across locations and authored two chapters.</p>
-                    <button class="view-work-btn" onclick="window.open('https://novelnovmber-60044720209.catalystserverless.in/app/index.html', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://novelnovmber-60044720209.catalystserverless.in/app/index.html', '_blank')">View Work</button>
                 </div>
                 <div class="project-box">
+                    <p class="project-num">08 — Research</p>
                     <h3>SEO GEO AEO</h3>
                     <p>I presented an overview of SEO, GEO, and AEO, simplifying key concepts for better understanding.</p>
-                    <button class="view-work-btn" onclick="window.open('https://www.canva.com/design/DAG9VSZSOXs/qySWtVbXt6PK-OnF4Cuseg/edit?utm_content=DAG9VSZSOXs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
+                    <button class="view-btn" onclick="window.open('https://www.canva.com/design/DAG9VSZSOXs/qySWtVbXt6PK-OnF4Cuseg/edit?utm_content=DAG9VSZSOXs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')">View Work</button>
                 </div>
                 <div class="project-box">
-                    <h3>Understanding and explaining Zoho CRM features</h3>
-                    <p>I explored the features in detail, analyzed edge cases, and explained their practical usage and limitations to the class.</p>
-                    <button class="view-work-btn" onclick="window.open('https://show.zoho.in/show/publish/lpjr978cc8b01ea324691ab9fdfed18c4fe49', '_blank')">View Work</button>
+                    <p class="project-num">09 — Analysis</p>
+                    <h3>Understanding Zoho CRM Features</h3>
+                    <p>I explored features in detail, analyzed edge cases, and explained their practical usage and limitations to the class.</p>
+                    <button class="view-btn" onclick="window.open('https://show.zoho.in/show/publish/lpjr978cc8b01ea324691ab9fdfed18c4fe49', '_blank')">View Work</button>
                 </div>
             </div>
-        </div>
+        </section>
+    </div>
 
-        <!-- Products learned -->
-        <div class="section">
-            <h2 class="section-title">Products known</h2>
+    <!-- SKILLS -->
+    <div class="skills-bg">
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Products Known</h2>
+            </div>
             <div class="skills-grid">
                 <div class="skill-box">
-                    <img src="https://cdn-public.softwarereviews.com/production/favicons/offerings/3576/original/zoho_creator-removebg-preview.png"width="100px", height="100px">
-                    <h4>Zoho creator</h4>
+                    <img class="skill-img" src="https://cdn-public.softwarereviews.com/production/favicons/offerings/3576/original/zoho_creator-removebg-preview.png" alt="Zoho Creator">
+                    <h4>Zoho Creator</h4>
                 </div>
-
                 <div class="skill-box">
-                    <img src="https://images.g2crowd.com/uploads/product/image/d9d3ff178178a1f790a9d6114e104471/zoho-crm.png"width="100px", height="100px">
+                    <img class="skill-img" src="https://images.g2crowd.com/uploads/product/image/d9d3ff178178a1f790a9d6114e104471/zoho-crm.png" alt="Zoho CRM">
                     <h4>Zoho CRM</h4>
                 </div>
-
                 <div class="skill-box">
-                    <img src="https://ps.w.org/zoho-forms/assets/icon-256x256.png?rev=2487515"width="100px", height="100px">
-
-                <h4>Zoho Forms</h4>
+                    <img class="skill-img" src="https://ps.w.org/zoho-forms/assets/icon-256x256.png?rev=2487515" alt="Zoho Forms">
+                    <h4>Zoho Forms</h4>
                 </div>
-
                 <div class="skill-box">
-                    <img src="https://www.zohowebstatic.com/sites/zweb/images/backstage/backstagetweet-logo.png"width="100px", height="100px">
-
+                    <img class="skill-img" src="https://www.zohowebstatic.com/sites/zweb/images/backstage/backstagetweet-logo.png" alt="Zoho Backstage">
                     <h4>Zoho Backstage</h4>
                 </div>
-
                 <div class="skill-box">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73s87yVTDevpv3gmvuYFzdzCu-aYnvr0dGQ&s"width="100px", height="100px">
-
+                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73s87yVTDevpv3gmvuYFzdzCu-aYnvr0dGQ&s" alt="Zoho Flow">
                     <h4>Zoho Flow</h4>
                 </div>
-
                 <div class="skill-box">
-                    <img src="https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw"width="100px", height="100px">
+                    <img class="skill-img" src="https://play-lh.googleusercontent.com/YBgxnUfyMTRZj5W2GtYcMOFhWzG2B_0GdeKcCmVqe5HYfPKXMjBlLWQ-Z6sMveA03Yw" alt="Zoho Survey">
                     <h4>Zoho Survey</h4>
                 </div>
                 <div class="skill-box">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMFSwCiB5tkK152CabdKGFMFJ_O9QpCombmA&s"width="100px", height="100px">
+                    <img class="skill-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMFSwCiB5tkK152CabdKGFMFJ_O9QpCombmA&s" alt="Zoho Sheets">
                     <h4>Zoho Sheets</h4>
-                
+                </div>
+                <div class="skill-box">
+                    <img class="skill-img" src="https://www.zohowebstatic.com/sites/zweb/images/products/bigin/bigin-icon.png" onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwHsEQpAiWdUZ2pMHaL2w8F5yqRHFvD0RgOA&s'" alt="Zoho Bigin">
+                    <h4>Zoho Bigin</h4>
+                </div>
             </div>
-        </div>
-    </div>
-</body>
-</html>
+        </section>
